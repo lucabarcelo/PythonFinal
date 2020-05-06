@@ -5,8 +5,7 @@ Created on Tue Apr 21 14:57:17 2020
 @author: lbarcelo
 """
 #import statements
-from flask import Flask, render_template, url_for, redirect, request
-import banna
+from flask import Flask, render_template, url_for, redirect
 
 #Flask app variable
 app = Flask(__name__)
@@ -16,17 +15,17 @@ app = Flask(__name__)
 def index():
 	return render_template("index.html")
 
-@app.route("/1006")
-def testing1():
-	return render_template("engi.html")
+@app.route("/crypto")
+def crypto():
+	return render_template("crypto.html")
 
-@app.route("/test")
-def testing2():
-	return banna.bannality()
+@app.route("/airPollution")
+def airPollution():
+	return render_template("pollution.html")
 
 @app.route("/210")
 def redirtest():
-    return redirect("/1006")
+    return redirect("/")
 
 #start the server
 if __name__ == "__main__":
