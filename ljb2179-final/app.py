@@ -6,12 +6,13 @@ Created on Tue Apr 21 14:57:17 2020
 """
 
 #import statements
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, request
 from matplotlib.figure import Figure
 from io import BytesIO
 import pandas as pd
 import numpy as np
 import base64
+import hashlib
 
 #Flask app variable
 app = Flask(__name__)
@@ -21,17 +22,33 @@ app = Flask(__name__)
 def index():
 	return render_template("index.html")
 
-@app.route("/crypto")
+
+@app.route("/crypto", methods=["GET", "POST"])
 def crypto():
-	return render_template("crypto.html")
+    if request.method == "POST":
+        InputHash = request.form["hash"]
+        
+        passlist = open('/Users/lucabarcelo/Desktop/Dev/1006/final/10kPasswords.txt', 'r')
+        readPasslist = passlist.read().split('\n')
+        
+        for word in readPasslist:
+            enc_wrd = word.encode('utf-8')
+            digested = hashlib.sha1(enc_wrd).hexdigest()
+            
+            if digested == InputHash:
+                print("string found")
+                print("string is " + word)
+                return render_template('Cracked.html', word=word)
+                
+            
+            elif digested != InputHash:
+                print('String ' + word + ' doesn\'t match, trying next...')
+                
+    return render_template("crypto.html")
 
 @app.route("/NYCh20Consumption")
 def waterConsump():
     return render_template("waterConsump.html")
-
-@app.route("/consump")
-def consump():
-	return redirect("/210")
 
 @app.route('/200')
 def dataTable():
@@ -151,3 +168,4 @@ def NYCWaterAnalysiseses():
 #start the server
 if __name__ == "__main__":
     app.run()
+
