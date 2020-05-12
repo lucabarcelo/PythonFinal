@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Data Table</title>
+    </head>
+    <body style="background-color:moccasin;">
+    	<header>
+    	{% for table in tables %}
+                {{titles[loop.index]}}
+                {{ table|safe }}
+        {% endfor %}
+ 		</header>
+    </body>
+</html>
+
+
+ 
+
