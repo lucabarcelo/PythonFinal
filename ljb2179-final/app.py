@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Apr 21 14:57:17 2020
-
+by | Luca Barcelo ljb2179 |
+Columbia University | Engi1006 | Spring 2020
+Final - App V.1.0
 @author: lbarcelo
 """
 
