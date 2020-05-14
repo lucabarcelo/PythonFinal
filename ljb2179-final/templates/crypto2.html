@@ -1,0 +1,33 @@
+ <!--  	<h2 style = "color:white;"> Below I've provided a few SHA1 hashed strings, unhash them! </h2>
+    		<h3 style = "color:white;"> 1) 90d014520eed41efb06dc1736acb362a613988ee <br /> 2) 728899bb9f1c1a073c6399881cc7e1960f4cb7f9 <br /> 3) 7c4a8d09ca3762af61e59520943dc26494f8941b </h3>
+  -->
+  
+  <!DOCTYPE html>
+<html>
+    <head>
+        <title>Cryptography</title>
+    </head>
+    <body style = "background-image: url({{url_for('static', filename='Alan-Turing.png') }})">
+        <header>
+            <h1 style = "color:white;"> Let's Continue Our Cryptography Journey! </h1>
+            <br />
+            <h3 style = "color:white;"> Please input the hash from before, or any SHA1 hash! (more basic the better, explained below) </h3>
+            <h3 style = "color:white;"> Here are some hashes to get you rollin: <br /> 1) 90d014520eed41efb06dc1736acb362a613988ee <br /> 2) 728899bb9f1c1a073c6399881cc7e1960f4cb7f9 <br /> 3) 7c4a8d09ca3762af61e59520943dc26494f8941b
+        </header>
+    <form method="POST">
+            <input type="text" id="hash" name="hash">
+            <button type="submit"> Unhash!</button>
+    </form>
+    <br />
+        <header>
+            <h3 style = "color:ghostwhite;"> So what exactly is happening here? </h3>
+            <h3 style = "color:ghostwhite;"> Since I couldn't unhash the hash you provided, I had to use a dictionary scan </h3>
+            <h3 style = "color:ghostwhite;"> A dictionary scan takes a preallocated list of x number of possible word/number combos and hashes each word in the list... </h3>
+            <h3 style = "color:ghostwhite;"> This allows me to compare the hash you provided me with x number of other hashes I randomly put into this list. </h3>
+            <h3 style = "color:ghostwhite;"> If I couldn't guess your hash, then you have revealed my weakness... </h3>
+            <h3 style = "color:ghostwhite;"> Essentially I can only crack about 500k hashes right now, since the list I run on top of only has 500,000 words to compare from!</h3>
+            <h3 style = "color:ghostwhite;"> So the more basic the word/number combo you provide, the greater the chance it's in my list, and the easier it is for me to crack! </h3>
+        </header>
+    </body>
+</html>
+
