@@ -6,15 +6,18 @@
     <body style = "background-image: url({{url_for('static', filename='Alan-Turing.png') }})">
     	<header>
     		<h1 style = "color:white;"> Let's Do Cryptography! </h1>
-    		<h2 style = "color:white;"> Below I've provided a few SHA1 hashed strings, unhash them! </h2>
-    		<h3 style = "color:white;"> 1) 90d014520eed41efb06dc1736acb362a613988ee <br /> 2) 728899bb9f1c1a073c6399881cc7e1960f4cb7f9 <br /> 3) 7c4a8d09ca3762af61e59520943dc26494f8941b </h3>
- 		</header>
+    		<h3 style = "color:white;"> Enter any word and click "Hash" to hash it with SHA1!</h2>
         <form method="POST">
-            <input type="text" id="hash" name="hash">
-            <button type="submit"> Unhash!</button>
+            <input type="text" id="word" name="word">
+            <button type="submit"> Hash!</button>
         </form>
+        <br />
+        <br />
+        <h3 style = "color:white;"> But how do we get our word back? </h3>
+        <h3 style = "color:white;"> As you may have noticed, I hashed your word using a secure hash algorithm (SHA1). <br> SHA1 is a one-way hash, so your newly acquired hash will never turn back into its original word... </h3>
+ 		<a href="{{url_for('UnhashIt')}}"> That is unless we use a dictionary scan! </a>
+ 		</header>
     </body>
 </html>
-
 
  
