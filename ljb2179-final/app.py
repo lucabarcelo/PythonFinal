@@ -35,7 +35,7 @@ def crypto():
 def UnhashIt():
     if request.method == 'POST':
         InputHash = request.form["hash"]
-        OCompList = open('/home/lbarcelo/mysite/500k.txt', 'r')
+        OCompList = open('500k.txt', 'r')
         CompList = OCompList.read().split('\n')
 
         for word in CompList:
@@ -53,12 +53,12 @@ def waterConsump():
 
 @app.route('/200')
 def dataTable():
-    df = pd.read_csv("/home/lbarcelo/mysite/Water_Consumption_In_The_New_York_City.csv")
+    df = pd.read_csv("Water_Consumption_In_The_New_York_City.csv")
     return render_template("dataT.html", tables=[df.to_html(classes='data')], titles=df.columns.values)
 
 @app.route("/210")
 def NYCWaterAnalysis():
-    xr = pd.read_csv("/home/lbarcelo/mysite/Water_Consumption_In_The_New_York_City.csv")
+    xr = pd.read_csv("Water_Consumption_In_The_New_York_City.csv")
     total, year = xr['NYC Consumption(Million gallons per day)'], xr['Year']
 
     def give_me_the_straight_boi(x, y):
@@ -94,7 +94,7 @@ def NYCWaterAnalysis():
 
 @app.route("/220")
 def NYCWaterAnalysises():
-    xr = pd.read_csv("/home/lbarcelo/mysite/Water_Consumption_In_The_New_York_City.csv")
+    xr = pd.read_csv("Water_Consumption_In_The_New_York_City.csv")
     percap, year = xr['Per Capita(Gallons per person per day)'], xr['Year']
 
     def give_me_the_straight_boi(x, y):
@@ -130,7 +130,7 @@ def NYCWaterAnalysises():
 
 @app.route("/230")
 def NYCWaterAnalysiseses():
-    xr = pd.read_csv("/home/lbarcelo/mysite/Water_Consumption_In_The_New_York_City.csv")
+    xr = pd.read_csv("Water_Consumption_In_The_New_York_City.csv")
     percap, populat = xr['Per Capita(Gallons per person per day)'], xr['New York City Population']
 
     def give_me_the_straight_boi(x, y):
